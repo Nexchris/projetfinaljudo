@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gray {
+            font-size: 200px;
+            color: gray;
+        }
+        #black {
+            font-size: 200px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid rgb(0, 255, 200);
+   
+    position: absolute;
+    top: 1%;
+        }
+
+        /* Animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="black">Je m'appelle Chris</div>
+
+    <script>
+        // JavaScript pour afficher les lettres une par une
+        const blackDiv = document.getElementById('black');
+        const text = blackDiv.textContent;
+        blackDiv.textContent = ''; // Efface le texte original
+
+        // Boucle à travers chaque lettre et ajoute un délai pour l'afficher
+        for (let i = 0; i < text.length; i++) {
+            setTimeout(() => {
+                blackDiv.textContent += text[i];
+            }, i * 300); // Délai de 200 millisecondes entre chaque lettre
+        }
+    </script>
+</body>
+</html>
+
+
+
+<div id="showdate2" style={{ position: "absolute", fontSize: "3vh", top:"26%", color: "white", left:"5%", fontWeight:"bold" }}>1972</div>
+<div id="showdate3" style={{ position: "absolute", fontSize: "3vh", top:"33%", color: "white", left:"5%", fontWeight:"bold" }}>1984</div>
+<div id="showdate5" style={{ position: "absolute", fontSize: "3vh", top:"40%", color: "white", left:"5%", fontWeight:"bold" }}>1988</div>
+<div id="showdate6" style={{ position: "absolute", fontSize: "3vh", top:"47%", color: "white", left:"5%", fontWeight:"bold" }}>1992</div>
+<div id="showdate7" style={{ position: "absolute", fontSize: "3vh", top:"54%", color: "white", left:"5%", fontWeight:"bold" }}>1996</div>
+<div id="showdate8" style={{ position: "absolute", fontSize: "3vh", top:"61%", color: "white", left:"5%", fontWeight:"bold" }}>2000</div>
+<div id="showdate9" style={{ position: "absolute", fontSize: "3vh", top:"68%", color: "white", left:"5%", fontWeight:"bold" }}>2012</div>
+<div id="showdate10" style={{ position: "absolute", fontSize: "3vh", top:"75%", color: "white", left:"5%", fontWeight:"bold" }}>2016</div>
+<div id="showdate11" style={{ position: "absolute", fontSize: "3vh", top:"82%", color: "white", left:"5%", fontWeight:"bold" }}>2020</div>
+<div id="showdate12" style={{ position: "absolute", fontSize: "3vh", top:"89%", color: "white", left:"5%", fontWeight:"bold" }}>2024</div>

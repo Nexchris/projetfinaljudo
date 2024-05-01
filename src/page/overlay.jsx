@@ -50,13 +50,15 @@ const Overlaymargin = styled.div`
 `;
 
 const Overlaydata2 = styled.div`
-  color: white;
-  height: 55vh;
-  width: 50vh;
-  overflow-y: auto;
-  font-family: Aileron;
-  font-size: 2vh;
-  background-color: transparent;
+color: white;
+height: 55vh;
+width: 50vh;
+overflow-y: auto;
+position: absolute;
+font-family: Aileron;
+font-size: 2vh;
+background-color: transparent;
+padding-right: 3vh;
 `;
 
 function Overlay({ athleteId }) {

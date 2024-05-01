@@ -1,27 +1,12 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Judoimage1 from '../image/judoimage1.jpg';
-import Judoimage2 from '../image/judoimage2.webp';
-import Judoimage3 from '../image/judoimage3.webp';
 import Frame from '../asset/frame';
 import Video from '../video/lejudo.mp4';
+import Videoasset from '../asset/videoplayer'
 import 'animate.css';
 
 // Déclaration de scrollImages en dehors du composant
-const scrollImages = keyframes`
-  0% {
-    background-image: url(${Judoimage1});
-  }
-  33% {
-    background-image: url(${Judoimage2});
-  }
-  66% {
-    background-image: url(${Judoimage3});
-  }
-  100% {
-    background-image: url(${Judoimage1});
-  }
-`;
+
 
 const Background = styled.div`
   width: 100%;
@@ -39,7 +24,8 @@ const Titleflex = styled.div`
   flex-direction: column;
   animation: bounceInLeft 1.5s;
   @media (min-width: 300px) and (max-width: 500px) {
-    font-size: 6vh;
+    font-size: 3.3vh;
+    margin-top:3vh;
   }
 `;
 
@@ -48,7 +34,8 @@ const Title1 = styled.div`
   margin-bottom: -8vh;
   margin-left: 11vh;
   @media (min-width: 300px) and (max-width: 500px) {
-    margin-left: 6vh;
+    margin-left: 13vh;
+    margin-bottom: -5vh;
   }
 `;
 
@@ -56,21 +43,11 @@ const Title2 = styled.div`
   margin-top: 25px;
   margin-left: 11vh;
   @media (min-width: 300px) and (max-width: 500px) {
-    margin-left: 1vh;
+    margin-left: 4vh;
   }
 `;
 
-const Photocontainer = styled.div`
-  background-color: royalblue;
-  position: absolute;
-  top: 45%;
-  left: 10%;
-  width: 25%;
-  height: 65vh;
-  background-size: cover;
-  background-position: center;
-  animation: ${scrollImages} 5s linear infinite;
-`;
+
 
 const Videocontainer = styled.div`
   position: absolute;
@@ -96,9 +73,7 @@ function PageHistoire() {
       </Titleflex>
       <Frame />
 
-      <Videocontainer>
-        <VideoPlayer src={Video} controls />
-      </Videocontainer>
+      <Videoasset />
     </Background>
   );
 }

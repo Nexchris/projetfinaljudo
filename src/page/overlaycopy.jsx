@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Frise from '../image/frise.png';
+
 import { Scrollbars } from 'react-custom-scrollbars';
 import Rinetoverlay from '../image/overlay/overlayrinet.png';
 import Overlaybackground1 from '../image/overlay/overlaybackground1.png';

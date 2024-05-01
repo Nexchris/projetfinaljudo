@@ -6,6 +6,7 @@ import Header from './asset/header';
 import Cookie from './asset/cookie';
 import PageHistoire from './page/pagehistoire';
 import Overlay from './page/overlay';
+import Overlaycopy from './page/overlaycopy';
 import Stackimage from './asset/stackimage';
 import Champion from './page/champion';
 import PageRecompense from './page/pagerecompense';
@@ -14,9 +15,11 @@ import PageGeneration from './page/pagegeneration';
 import PageDates from './page/pagedates';
 import Carouselle from './page/carouselle';
 import Footer from './asset/footer';
+import Frame from './asset/frame';
 import Championlist from './asset/ChampionsList';
 import ChampionCard from './asset/ChampionCard';
-import Yanispage from './page/yanispage'
+import Mainview from './firebase/backoffice';
+import LoginScreen from './firebase/loginScreen';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -47,7 +50,6 @@ export default function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Yanispage/>
       <Header />
       <PageHistoire />
       <PageChampion />

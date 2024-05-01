@@ -8,11 +8,14 @@ import Decosse from '../image/champion/championdecosse.png';
 import Douillet from '../image/champion/championdouillet.png';
 import Parisi from '../image/champion/championparisi.png';
 import Riner from '../image/champion/championriner.png';
-import Overlayriner from './overlay';
-
+import Overlayabegnenou from '../overlay/overlayagbegnenou';
+import Overlayparisi from '../overlay/overlayparisi';
+import Overlaydecosse from '../overlay/overlaydecosse';
+import Overlaydouillet from '../overlay/overlaydouillet';
+import Overlayriner from '../overlay/overlayrinet';
 
 const Container = styled.div`
-  background-color: #3B3232;
+  background-color: #0A094B;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -31,9 +34,8 @@ const Titleflex = styled.div`
 `;
 
 const Titleanimation = styled.div`
-  animation: swing
-  2s; /* Ajout de l'animation zoomIn */
-`
+  animation: swing 2s; /* Ajout de l'animation zoomIn */
+`;
 
 const Title1 = styled.div`
   margin-left: 6%;
@@ -83,8 +85,7 @@ const StyledImage = styled.img`
   }
 `;
 
-const Title2 = styled.div`
-`;
+const Title2 = styled.div``;
 
 export default class Example extends Component {
   state = {
@@ -92,43 +93,43 @@ export default class Example extends Component {
     offsetRadius: 2,
     showNavigation: true,
     config: config.gentle,
-    overlayRinerOpen: false // État pour contrôler la visibilité de l'overlay Riner
+    overlayOpen: false, // État pour contrôler la visibilité de l'overlay
+    currentOverlay: null // Pour stocker le composant d'overlay actuellement ouvert
   };
 
   slides = [
     {
       key: uuidv4(),
-      content: <StyledImage src={Agbegnenou} alt="1" />
+      content: <StyledImage src={Agbegnenou} alt="1" onClick={() => this.openOverlay(<Overlayabegnenou />, 'Agbegnenou')} />
     }, 
     {
       key: uuidv4(),
-      content: <StyledImage src={Decosse} alt="2" />
+      content: <StyledImage src={Decosse} alt="2" onClick={() => this.openOverlay(<Overlaydecosse />, 'Decosse')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Douillet} alt="3" />
+      content: <StyledImage src={Douillet} alt="3" onClick={() => this.openOverlay(<Overlaydouillet />, 'Douillet')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Parisi} alt="4" />
+      content: <StyledImage src={Parisi} alt="4" onClick={() => this.openOverlay(<Overlayparisi />, 'Parisi')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Riner} alt="5" onClick={() => this.openOverlayRiner()} />
+      content: <StyledImage src={Riner} alt="5" onClick={() => this.openOverlay(<Overlayriner />, 'Riner')} />
     },
-  
   ].map((slide, index) => {
     return { ...slide, onClick: () => this.setState({ goToSlide: index }) };
   });
 
-  // Fonction pour ouvrir l'overlay Riner
-  openOverlayRiner = () => {
-    this.setState({ overlayRinerOpen: true });
+  // Fonction pour ouvrir l'overlay
+  openOverlay = (overlayComponent, overlayName) => {
+    this.setState({ overlayOpen: true, currentOverlay: overlayComponent });
   };
 
-  // Fonction pour fermer l'overlay Riner
-  closeOverlayRiner = () => {
-    this.setState({ overlayRinerOpen: false });
+  // Fonction pour fermer l'overlay
+  closeOverlay = () => {
+    this.setState({ overlayOpen: false, currentOverlay: null });
   };
 
   render() {
@@ -137,7 +138,7 @@ export default class Example extends Component {
         <Titleanimation>
           <Titleflex>
             <Title1>Les</Title1>
-            <Title2>Champions</Title2>
+            <Title2>Legendes</Title2>
           </Titleflex>
         </Titleanimation>
         <div style={{ width: "50%", height: "60vh", margin: "0 auto" }}>
@@ -218,10 +219,10 @@ export default class Example extends Component {
             </div>
           </div>
         </div>
-        {/* Ajoutez ici votre logique de rendu pour l'overlay Riner */}
-        <Overlay isOpen={this.state.overlayRinerOpen}>
-          <Overlayriner />
-          <CloseButton onClick={this.closeOverlayRiner}>&times;</CloseButton>
+        {/* Logique de rendu pour l'overlay */}
+        <Overlay isOpen={this.state.overlayOpen}>
+          {this.state.currentOverlay}
+          <CloseButton onClick={this.closeOverlay}>&times;</CloseButton>
         </Overlay>
       </Container>
     );

@@ -6,7 +6,7 @@ const CookieBannerWrapper = styled.div`
   padding: 10px;
   position: sticky;
   width: 20%;
-  height: 10%;
+  height: 10vh;
   opacity: ${props => props.show ? 1 : 0}; /* Utilisation de la propriété show pour contrôler l'opacité */
   transition: opacity 0.5s ease; /* Ajout de la transition */
   left: ${props => props.show ? '40%' : '40%'}; /* Ajustement de la propriété left */
@@ -15,12 +15,17 @@ const CookieBannerWrapper = styled.div`
 
 const Message = styled.p`
   color: white;
+  font-size:1.9vh;
+  margin-top:1vh;
+  margin-bottom:1vh;
+  font-family: 'Aileron';
 `;
 
 const Button = styled.button`
-  background-color: #1e90ff;
+  background-color: #00488e;
   color: white;
   margin-right: 10px;
+  width:15vh;
 `;
 
 const CookieBanner = () => {

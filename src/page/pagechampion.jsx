@@ -8,11 +8,14 @@ import Decosse from '../image/champion/championdecosse.png';
 import Douillet from '../image/champion/championdouillet.png';
 import Parisi from '../image/champion/championparisi.png';
 import Riner from '../image/champion/championriner.png';
-import Overlayriner from './overlay';
-
+import Overlayabegnenou from '../overlay/overlayagbegnenou';
+import Overlayparisi from '../overlay/overlayparisi';
+import Overlaydecosse from '../overlay/overlaydecosse';
+import Overlaydouillet from '../overlay/overlaydouillet';
+import Overlayriner from '../overlay/overlayrinet';
 
 const Container = styled.div`
-background-color: #0A094B;
+  background-color: #0A094B;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -31,9 +34,8 @@ const Titleflex = styled.div`
 `;
 
 const Titleanimation = styled.div`
-  animation: swing
-  2s; /* Ajout de l'animation zoomIn */
-`
+  animation: swing 2s; /* Ajout de l'animation zoomIn */
+`;
 
 const Title1 = styled.div`
   margin-left: 6%;
@@ -49,7 +51,7 @@ const Overlay = styled.div`
   height: 100%;
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  z-index: 9999; // Valeur de z-index élevée pour que l'overlay soit au-dessus de tout
+  z-index: 9999; /* Valeur de z-index élevée pour que l'overlay soit au-dessus de tout */
 `;
 
 const CloseButton = styled.span`
@@ -59,18 +61,6 @@ const CloseButton = styled.span`
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-`;
-
-const CustomCarousel = styled(Carousel)`
-  position: absolute;
-  top: 42%;
-  left: 37%;
-  display: flex;
-  height: 5vh;
-  margin: 1rem auto 0px;
-  z-index: 9999;
-  width: 26%;
-  justify-content: space-between;
 `;
 
 const StyledImage = styled.img`
@@ -83,8 +73,7 @@ const StyledImage = styled.img`
   }
 `;
 
-const Title2 = styled.div`
-`;
+const Title2 = styled.div``;
 
 export default class Example extends Component {
   state = {
@@ -92,43 +81,43 @@ export default class Example extends Component {
     offsetRadius: 2,
     showNavigation: true,
     config: config.gentle,
-    overlayRinerOpen: false // État pour contrôler la visibilité de l'overlay Riner
+    overlayOpen: false, // État pour contrôler la visibilité de l'overlay
+    currentOverlay: null // Pour stocker le composant d'overlay actuellement ouvert
   };
 
   slides = [
     {
       key: uuidv4(),
-      content: <StyledImage src={Agbegnenou} alt="1" />
+      content: <StyledImage src={Agbegnenou} alt="1" onClick={() => this.openOverlay(<Overlayabegnenou />, 'Agbegnenou')} />
     }, 
     {
       key: uuidv4(),
-      content: <StyledImage src={Decosse} alt="2" />
+      content: <StyledImage src={Decosse} alt="2" onClick={() => this.openOverlay(<Overlaydecosse />, 'Decosse')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Douillet} alt="3" />
+      content: <StyledImage src={Douillet} alt="3" onClick={() => this.openOverlay(<Overlaydouillet />, 'Douillet')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Parisi} alt="4" />
+      content: <StyledImage src={Parisi} alt="4" onClick={() => this.openOverlay(<Overlayparisi />, 'Parisi')} />
     },
     {
       key: uuidv4(),
-      content: <StyledImage src={Riner} alt="5" onClick={() => this.openOverlayRiner()} />
+      content: <StyledImage src={Riner} alt="5" onClick={() => this.openOverlay(<Overlayriner />, 'Riner')} />
     },
-  
   ].map((slide, index) => {
     return { ...slide, onClick: () => this.setState({ goToSlide: index }) };
   });
 
-  // Fonction pour ouvrir l'overlay Riner
-  openOverlayRiner = () => {
-    this.setState({ overlayRinerOpen: true });
+  // Fonction pour ouvrir l'overlay
+  openOverlay = (overlayComponent, overlayName) => {
+    this.setState({ overlayOpen: true, currentOverlay: overlayComponent });
   };
 
-  // Fonction pour fermer l'overlay Riner
-  closeOverlayRiner = () => {
-    this.setState({ overlayRinerOpen: false });
+  // Fonction pour fermer l'overlay
+  closeOverlay = () => {
+    this.setState({ overlayOpen: false, currentOverlay: null });
   };
 
   render() {
@@ -157,73 +146,16 @@ export default class Example extends Component {
               justifyContent: "space-around"
             }}
           >
-            <div>
-              <label>Go to slide: </label>
-              <input name="goToSlide" onChange={this.onChangeInput} />
-            </div>
-            <div>
-              <label>Offset Radius: </label>
-              <input name="offsetRadius" onChange={this.onChangeInput} />
-            </div>
-            <div>
-              <label>Show navigation: </label>
-              <input
-                type="checkbox"
-                checked={this.state.showNavigation}
-                name="showNavigation"
-                onChange={e => {
-                  this.setState({ showNavigation: e.target.checked });
-                }}
-              />
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.setState({ config: config.gentle });
-                }}
-                disabled={this.state.config === config.gentle}
-              >
-                Gentle Transition
-              </button>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.setState({ config: config.slow });
-                }}
-                disabled={this.state.config === config.slow}
-              >
-                Slow Transition
-              </button>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.setState({ config: config.wobbly });
-                }}
-                disabled={this.state.config === config.wobbly}
-              >
-                Wobbly Transition
-              </button>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.setState({ config: config.stiff });
-                }}
-                disabled={this.state.config === config.stiff}
-              >
-                Stiff Transition
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* Ajoutez ici votre logique de rendu pour l'overlay Riner */}
-        <Overlay isOpen={this.state.overlayRinrOpen}>
-          <Overlayriner />
-          <CloseButton onClick={this.closeOverlayRiner}>&times;</CloseButton>
+            
+   
+        {/* Logique de rendu pour l'overlay */}
+        <Overlay isOpen={this.state.overlayOpen}>
+          {this.state.currentOverlay}
+          <CloseButton onClick={this.closeOverlay}>&times;</CloseButton>
         </Overlay>
-      </Container>
-    );
-  }
+      </div>
+    </div>
+  </Container>
+);
+}
 }

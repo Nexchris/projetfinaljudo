@@ -24,6 +24,7 @@ p{
   background-color: gray; /* Couleur de la piste */
   border-radius: 10px; /* Bordure arrondie de la poignée */
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

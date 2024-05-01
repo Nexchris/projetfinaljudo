@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Francejudo from './asset/FranceJudo.ttf';
 import logo from './logo.svg';
@@ -18,18 +19,19 @@ import Footer from './asset/footer';
 import Frame from './asset/frame';
 import Championlist from './asset/ChampionsList';
 import ChampionCard from './asset/ChampionCard';
-
+import MainView from './backoffice';
+import LoginScreen from './loginScreen';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'FranceJudo';
     src: url(${Francejudo}) format('truetype');
-    font-display: swap; /* Utilisez 'swap' pour afficher le texte avec une police de secours avant que la police principale ne soit téléchargée */
+    font-display: swap;
   }
 
   body {
     font-family: 'FranceJudo', sans-serif;
-    margin: 0; /* Supprime la marge par défaut du corps */
+    margin: 0;
   }
 `;
 
@@ -37,17 +39,33 @@ export default function App() {
   const [showCookieBanner, setShowCookieBanner] = useState(true);
 
   const handleAcceptCookies = () => {
-    // Mettre en œuvre la logique pour accepter les cookies ici
     setShowCookieBanner(false);
   };
 
   const handleRejectCookies = () => {
-    // Mettre en œuvre la logique pour refuser les cookies ici
     setShowCookieBanner(false);
   };
 
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
+        
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/backoffice" element={<MainView />} />
+          <Route path="/login" element={<LoginScreen />} />
+        </Routes>
+        
+       
+   
+      </div>
+    </Router>
+  );
+}
+
+function HomePage() {
+  return (
+    <>
       <GlobalStyle />
       <Header />
       <PageHistoire />
@@ -56,18 +74,6 @@ export default function App() {
       <PageGeneration />
       <PageDates />
       <Footer />
-      {showCookieBanner && (
-        <div style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-
-          textAlign: 'center',
-        }}>
-          <Cookie onAccept={handleAcceptCookies} onReject={handleRejectCookies} />
-        </div>
-      )}
-    </div>
+    </>
   );
 }

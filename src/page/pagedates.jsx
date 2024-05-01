@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: #ff5a01;
+  background-color: #0A094B;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -49,7 +49,7 @@ background-color: white;
 position: absolute;
 width: 1vh;
 top: 12%;
-left: 202px;
+left: 21.3vh;
 height: 85vh;
 `
 
@@ -62,6 +62,7 @@ border-left: 3vh solid transparent;
 border-right: 3vh solid transparent;
 border-bottom: 6vh solid #ffffff;
 position: absolute;
+
 }
   
 `;
@@ -99,11 +100,12 @@ top: 16%;
   height: 0;
   border-left: 3vh solid transparent;
   border-right: 3vh solid transparent;
-  border-bottom: 6vh solid #E45000;
+  border-bottom: 6vh solid #030235;
   transform: rotate(270deg);
   position: absolute;
   opacity: ${(props) => (props.isVisible ? '1' : '0')};
   transition: opacity 0.5s ease;
+  animation: fadeIn 1s;
 `;
 
 const Triangle1 = styled(Triangle)``;
@@ -141,12 +143,16 @@ const Triangle11 = styled(Triangle)`
 
 const Text = styled.div`
   color: white;
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 3.2vh;
+  font-family: 'Inter';
+  margin-top: 2vh;
+  margin-left:8vh;
+  margin-right:8vh;
+  animation: fadeIn 1s;
 `;
 
 const DateContainer = styled.div`
-background-color: #E45000;
+background-color: #030235;
 border-radius: 4vh;
 width: 80%;
 height: 10vh;
@@ -154,6 +160,7 @@ color: white;
 font-size: 4vh;
 font-family: Inter;
 position: absolute;
+animation: fadeIn 1s;
 top: 14%;
 left: 16%;
 opacity: ${(props) => (props.isVisible ? '1' : '0')};
@@ -399,7 +406,9 @@ function Dates() {
         <>
           <Triangle1 isVisible={isVisible1} />
           <DateContainer1 isVisible={isVisible1}>
-            <Text>Première apparition du judo aux Jeux Olympiques à Tokyo.</Text>
+            <Text>Première apparition du judo aux Jeux Olympiques à Tokyo.
+ La France décroche deux médailles de bronze avec Marie-France Collard 
+(-48 kg)et Antoine Blachon (-80 kg).</Text>
           </DateContainer1>
         </>
       )}
@@ -407,7 +416,8 @@ function Dates() {
         <>
           <Triangle2 isVisible={isVisible2} />
           <DateContainer2 isVisible={isVisible2}>
-            <Text>Trois médailles de bronze à Munich, dont une pour Jean-Luc Rougé</Text>
+            <Text>Trois médailles de bronze à Munich, dont une pour Jean-Luc Rougé 
+(-70 kg), futur entraîneur emblématique.</Text>
           </DateContainer2>
         </>
       )}
@@ -415,7 +425,8 @@ function Dates() {
         <>
           <Triangle3 isVisible={isVisible3} />
           <DateContainer3 isVisible={isVisible3}>
-            <Text>Angelo Parisi (-60 kg) devient le premier champion olympique</Text>
+            <Text>Angelo Parisi (-60 kg) devient le premier champion olympique
+ français de judo à Los Angeles.</Text>
           </DateContainer3>
         </>
       )}
@@ -423,7 +434,8 @@ function Dates() {
         <>
           <Triangle4 isVisible={isVisible4} />
           <DateContainer4 isVisible={isVisible4}>
-            <Text>Annick Level (-66 kg) s'impose à Séoul et offre à la France son</Text>
+            <Text>Annick Level (-66 kg) s'impose à Séoul et offre à la France son
+ deuxième titre olympique.</Text>
           </DateContainer4>
         </>
       )}
@@ -431,7 +443,8 @@ function Dates() {
         <>
           <Triangle5 isVisible={isVisible5} />
           <DateContainer5 isVisible={isVisible5}>
-            <Text>La France s'adjuge trois médailles à Barcelone, dont l'or pour</Text>
+            <Text>La France s'adjuge trois médailles à Barcelone, dont l'or pour 
+Stéphane Traineau (-80 kg).</Text>
           </DateContainer5>
         </>
       )}
@@ -439,7 +452,9 @@ function Dates() {
         <>
           <Triangle6 isVisible={isVisible6} />
           <DateContainer6 isVisible={isVisible6}>
-            <Text>David Douillet (-90 kg) décroche son premier titre olympique </Text>
+            <Text>David Douillet (-90 kg) décroche son premier titre olympique 
+à Atlanta, tandis que Laure Pécout (-72 kg) monte sur la plus haute marche 
+du podium. </Text>
           </DateContainer6>
         </>
       )}
@@ -447,7 +462,9 @@ function Dates() {
         <>
           <Triangle7 isVisible={isVisible7} />
           <DateContainer7 isVisible={isVisible7}>
-            <Text>Douillet et Pécout conservent leurs titres à Sydney. Priscilla Gneto </Text>
+            <Text>Douillet et Pécout conservent leurs titres à Sydney. Priscilla Gneto 
+(-52 kg) et Sandrine Aubert (-63 kg) sont également sacrées championnes 
+olympiques. </Text>
           </DateContainer7>
         </>
       )}
@@ -455,7 +472,8 @@ function Dates() {
         <>
           <Triangle8 isVisible={isVisible8} />
           <DateContainer8 isVisible={isVisible8}>
-            <Text>Teddy Riner (-100 kg) entame sa série de trois titres olympiques</Text>
+            <Text>Teddy Riner (-100 kg) entame sa série de trois titres olympiques 
+consécutifs à Londres.</Text>
           </DateContainer8>
         </>
       )}
@@ -463,7 +481,8 @@ function Dates() {
         <>
           <Triangle9 isVisible={isVisible9} />
           <DateContainer9 isVisible={isVisible9}>
-            <Text> Riner conserve son titre à Rio, tandis que Clarisse Agbégnénou </Text>
+            <Text>  Riner conserve son titre à Rio, tandis que Clarisse Agbégnénou 
+(-63 kg) et Madeleine Malonga (-78 kg) décrochent l'argent. </Text>
           </DateContainer9>
         </>
       )}
@@ -471,7 +490,8 @@ function Dates() {
         <>
           <Triangle10 isVisible={isVisible10} />
           <DateContainer10 isVisible={isVisible10}>
-            <Text>iner réussit l'exploit de remporter un troisième titre olympique </Text>
+            <Text>Riner réussit l'exploit de remporter un troisième titre olympique 
+consécutif à Tokyo. Agbégnénou s'impose également en -63 kg. </Text>
           </DateContainer10>
         </>
       )}

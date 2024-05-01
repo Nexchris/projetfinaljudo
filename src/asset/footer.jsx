@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Background = styled.div`
   width: 100%;
   height: 10vh;
-  background-color: #A3326F80;
+  background-color: royalblue;
 `;
 
 const FooterContainer = styled.div`
@@ -24,7 +24,7 @@ function Footer() {
   return (
     <Background>
       <FooterContainer>
-        <FooterItem>Partager</FooterItem>
+        <FooterItem>RGPD</FooterItem>
         <FooterItem>Mentions Legales</FooterItem>
         <FooterItem>Presse</FooterItem>
       </FooterContainer>

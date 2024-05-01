@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Scrollbars } from 'react-custom-scrollbars';
+
 import Rinetoverlay from '../image/overlay/overlayrinet.png';
 import Overlaybackground1 from '../image/overlay/overlaybackground1.png';
 import Overlaybackground2 from '../image/overlay/overlaybackground2.png';

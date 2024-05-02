@@ -4,7 +4,7 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import Francejudo from './FranceJudo.ttf';
 import Headerimage from '../image/headerbackground.png';
-import Usericon from '../image/user.png'
+import Usericon from '../image/usericon.png'
 
 
 
@@ -47,8 +47,8 @@ const Animatetext = styled.div`
 
 const User = styled.img`
 position: absolute;
-top: 0%;
-left:95%;
+top: 1%;
+left:94%;
 width:5%;
 `
 

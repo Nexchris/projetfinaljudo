@@ -13,6 +13,11 @@ p{
   width: 6px; /* Largeur de la barre de défilement */
 }
 
+body {
+  overflow-x: hidden;
+}
+
+
 /* Poignée de la barre de défilement */
 ::-webkit-scrollbar-thumb {
   background-color: white; /* Couleur de la poignée */

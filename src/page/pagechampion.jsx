@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import Carousel from "react-spring-3d-carousel";
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
@@ -31,11 +31,10 @@ const Titleflex = styled.div`
   flex-direction: column;
   align-content: stretch;
   align-items: baseline;
+  animation: ${({ isVisible }) => (isVisible ? 'bounceInDown 2s' : 'none')}; 
 `;
 
-const Titleanimation = styled.div`
-  animation: swing 2s; /* Ajout de l'animation zoomIn */
-`;
+const Titleanimation = styled.div``;
 
 const Title1 = styled.div`
   margin-left: 6%;
@@ -51,7 +50,7 @@ const Overlay = styled.div`
   height: 100%;
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  z-index: 9999; /* Valeur de z-index élevée pour que l'overlay soit au-dessus de tout */
+  z-index: 9999; 
 `;
 
 const CloseButton = styled.span`
@@ -81,8 +80,9 @@ export default class Example extends Component {
     offsetRadius: 2,
     showNavigation: true,
     config: config.gentle,
-    overlayOpen: false, // État pour contrôler la visibilité de l'overlay
-    currentOverlay: null // Pour stocker le composant d'overlay actuellement ouvert
+    overlayOpen: false, 
+    currentOverlay: null,
+    isVisible: false
   };
 
   slides = [
@@ -110,6 +110,23 @@ export default class Example extends Component {
     return { ...slide, onClick: () => this.setState({ goToSlide: index }) };
   });
 
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const generationPage = document.getElementById("generationPage");
+    const titlePosition = generationPage.offsetTop;
+    const scrollPosition = window.scrollY + window.innerHeight;
+    if (scrollPosition > titlePosition) {
+      this.setState({ isVisible: true });
+    }
+  };
+
   // Fonction pour ouvrir l'overlay
   openOverlay = (overlayComponent, overlayName) => {
     this.setState({ overlayOpen: true, currentOverlay: overlayComponent });
@@ -122,14 +139,26 @@ export default class Example extends Component {
 
   render() {
     return (
-      <Container>
+      <Container id="generationPage">
         <Titleanimation>
-          <Titleflex>
+          <Titleflex isVisible={this.state.isVisible}>
             <Title1>Les</Title1>
             <Title2>Legendes</Title2>
           </Titleflex>
         </Titleanimation>
-        <div style={{ width: "50%", height: "60vh", margin: "0 auto" }}>
+        <div
+  style={{
+    width: "50%",
+    height: "60vh",
+    margin: "0 auto",
+    '@media (min-width: 300px) and (max-width: 500px)': {
+      width: "165%",
+      height: "60vh",
+      marginleft: "-14vh",
+    }
+  }}
+>
+
           <Carousel
             slides={this.slides}
             goToSlide={this.state.goToSlide}
@@ -144,6 +173,7 @@ export default class Example extends Component {
               width: "50%",
               display: "flex",
               justifyContent: "space-around"
+              
             }}
           >
             

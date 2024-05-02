@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Frame from '../asset/frame';
 import Video from '../video/lejudo.mp4';
@@ -14,6 +14,9 @@ const Background = styled.div`
   background-color: #0A094B;
   display: flex;
   align-items: flex-start; /* Aligner les enfants sur le début de l'axe transversal */
+  @media (min-width: 300px) and (max-width: 500px) {
+    height: 60vh;
+  }
 `;
 
 const Titleflex = styled.div`
@@ -22,7 +25,7 @@ const Titleflex = styled.div`
   color: white;
   align-items: flex-start;
   flex-direction: column;
-  animation: bounceInLeft 1.5s;
+  animation: backInLeft 1.5s;
   @media (min-width: 300px) and (max-width: 500px) {
     font-size: 3.3vh;
     margin-top:3vh;
@@ -64,6 +67,13 @@ const VideoPlayer = styled.video`
 `;
 
 function PageHistoire() {
+  useEffect(() => {
+    // Déclencher l'animation des titres ici
+    return () => {
+      // Nettoyage si nécessaire
+    };
+  }, []);
+
   return (
     <Background>
       <Titleflex>
@@ -72,10 +82,8 @@ function PageHistoire() {
         <Title2> du Judo Francais</Title2>
       </Titleflex>
       <Frame />
-
       <Videoasset />
     </Background>
   );
 }
-
 export default PageHistoire;

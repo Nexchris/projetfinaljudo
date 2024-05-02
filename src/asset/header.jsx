@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import Francejudo from './FranceJudo.ttf';
 import Headerimage from '../image/headerbackground.png';
 import Usericon from '../image/usericon.png'
+import Usericonhover from '../image/usericonhover.png'
+import ScrollingText from '../asset/scrollingtext'
 
 
 
@@ -50,6 +52,17 @@ position: absolute;
 top: 1%;
 left:94%;
 width:5%;
+animation: bounceInRight 1s;
+
+&:hover{
+  filter: contrast(0.8);
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+    left: 85%;
+    width: 13%;
+}
+
 `
 
 
@@ -65,7 +78,8 @@ const TextAnimation = styled.div`
   transition: transform 0.5s linear;
 
   @media (min-width: 300px) and (max-width: 500px) {
-    font-size: 13vh;
+    font-size: 11vh;
+    top: 46%;
   }
 `;
 
@@ -97,7 +111,7 @@ function Header() {
       <Background>
 
 
-          <Animatetext>Les Legendes du Judo Francais</Animatetext>
+      <ScrollingText  />
         <TextAnimation translateY={translateY} fontSize={fontSize}>
           Judo
         </TextAnimation>

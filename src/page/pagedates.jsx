@@ -19,11 +19,17 @@ const Titleflex = styled.div`
   align-content: stretch;
   align-items: baseline;
   margin-bottom: 5%;
+ 
 `;
 
 const Title1 = styled.div`
   margin-left: 53%;
   margin-top: 1%;
+  @media (min-width: 300px) and (max-width: 500px) {
+    font-size: 2.5vh;
+    margin-left: 17%;
+    margin-top: 5%;
+  }
 `;
 
 const Dotcontainer = styled.div``;
@@ -42,7 +48,12 @@ const Dot = styled.div`
   &:hover {
     opacity: 0.5;
   }
+
+  @media (min-width: 300px) and (max-width: 500px) {
+    margin-left: 30%;
+  }
 `;
+
 
 const ArrowLine = styled.div`
 background-color: white;

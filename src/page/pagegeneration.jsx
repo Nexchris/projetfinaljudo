@@ -20,6 +20,11 @@ const CustomCarousel = styled(Carousel)`
   width: 95%;
   height: 700px;
   margin-left:3%;
+
+  @media (min-width: 300px) and (max-width: 500px) {
+    height: 500px;
+
+  }
 `;
 
 const Titleflex = styled.div`
@@ -33,8 +38,16 @@ const Titleflex = styled.div`
   align-items: baseline;
   margin-bottom: 1%;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  animation: ${({ isVisible }) => (isVisible ? 'backInLeft' : 'none')} 1.2s ease-in-out; // Remplace la transition d'opacité par l'animation zoomIn
-`;
+  animation: ${({ isVisible }) => (isVisible ? 'bounceInDown 1s;' : 'none')} 1.2s ease-in-out; // Remplace la transition d'opacité par l'animation zoomIn
+  @media (min-width: 300px) and (max-width: 500px) {
+    font-size: 3.3vh;
+    width: 95%;
+    margin-left:7vh;
+    margin-bottom: 2vh;
+  }
+  `
+
+;
 
 const Title1 = styled.div`
   margin-left: 6%;

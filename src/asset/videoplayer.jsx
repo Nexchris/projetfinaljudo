@@ -4,7 +4,7 @@ import Video from '../video/lejudo.mp4';
 
 const VideoContainer = styled.div`
   position: absolute;
-  top: 73%;
+  top: 158%;
   left: 70%;
   transform: translate(-50%, -50%);
   width: 50%;

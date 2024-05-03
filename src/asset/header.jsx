@@ -4,6 +4,7 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import Francejudo from './FranceJudo.ttf';
 import Headerimage from '../image/headerbackground.png';
+import Olympic from '../image/olympic.png';
 import Usericon from '../image/usericon.png'
 import Usericonhover from '../image/usericonhover.png'
 import ScrollingText from '../asset/scrollingtext'
@@ -20,8 +21,10 @@ left: 0%;
 
 const Background = styled.div`
   width: 100%;
-  background-color: royalblue;
-  height: 20vh;
+  background-image: url(${Headerimage}); 
+  background-size:cover;
+  background-color: #0A094B;
+  height: 100vh;
   overflow: hidden;
 `;
 
@@ -65,16 +68,24 @@ animation: bounceInRight 1s;
 
 `
 
+const Ring = styled.div`
+position:absolute;
+top:54%;
+left:40%;
+animation: backInUp 1s;
+`
+
 
 const TextAnimation = styled.div`
   width: 100%;
   color: white;
   font-size: ${({ fontSize }) => fontSize}px;
   padding-top: 55px;
+  margin-top: 20vh;
   font-weight: 900;
   position: relative;
   top: 50%;
-  transform: translateY(${({ translateY }) => Math.min(translateY, 10)}%);
+  transform: translateY(${({ translateY }) => Math.min(translateY, 50)}%);
   transition: transform 0.5s linear;
 
   @media (min-width: 300px) and (max-width: 500px) {
@@ -86,13 +97,13 @@ const TextAnimation = styled.div`
 
 
 function Header() {
-  const [translateY, setTranslateY] = useState(-60); // Valeur initiale pour translateY
-  const [fontSize, setFontSize] = useState(210); // Valeur initiale pour fontSize
+  const [translateY, setTranslateY] = useState(-150); // Valeur initiale pour translateY
+  const [fontSize, setFontSize] = useState(300); // Valeur initiale pour fontSize
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const newTranslateY = -60 + scrollPosition * 1; // Augmenter le multiplicateur pour accélérer le mouvement
+      const newTranslateY = -150 + scrollPosition * 1; // Augmenter le multiplicateur pour accélérer le mouvement
       setTranslateY(newTranslateY);
 
       const newFontSize = 210 - scrollPosition; // Diminue le fontSize de 1 à chaque pixel de défilement
@@ -112,6 +123,7 @@ function Header() {
 
 
       <ScrollingText  />
+      <Ring><img src={Olympic} alt="" /></Ring>
         <TextAnimation translateY={translateY} fontSize={fontSize}>
           Judo
         </TextAnimation>

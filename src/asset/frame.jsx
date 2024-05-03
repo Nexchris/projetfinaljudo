@@ -35,7 +35,7 @@ const ImageContainer = styled.div`
   position: absolute;
   width: 50vh; /* Largeur de l'image */
   height: auto; /* Ajuste la hauteur automatiquement */
-  top: 45%;
+  top: 130%;
   left: 10%;
 
   @media (max-width: 768px) { /* Définis la largeur maximale pour les écrans de taille d'un ordinateur */

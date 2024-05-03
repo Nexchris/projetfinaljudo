@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components';
 const Container = styled.div`
   overflow: hidden;
   
+  
 
 `;
 
@@ -13,6 +14,7 @@ const Text = styled.div`
   color: white;
   font-size:8vh;
   position:absolute;
+  top:10%;
   margin-top:5vh;
 
 `;

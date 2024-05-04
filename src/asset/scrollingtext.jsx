@@ -3,6 +3,9 @@ import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
   overflow: hidden;
+  @media (min-width: 300px) and (max-width: 500px) {
+    display: none;
+  }
   
   
 
@@ -16,6 +19,10 @@ const Text = styled.div`
   position:absolute;
   top:10%;
   margin-top:5vh;
+  @media (min-width: 300px) and (max-width: 1000px) {
+ top:20%;
+}
+
 
 `;
 
@@ -30,6 +37,9 @@ const scrollAnimation = keyframes`
 
 const AnimatedText = styled(Text)`
   animation: ${scrollAnimation} 5s linear infinite;
+  @media (min-width: 700px) and (max-width: 1000px) {
+    animation: ${scrollAnimation} 10s linear infinite;
+   }
 `;
 
 const ScrollingText = () => {

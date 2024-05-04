@@ -26,6 +26,9 @@ const Background = styled.div`
   background-color: #0A094B;
   height: 100vh;
   overflow: hidden;
+  @media (min-width: 300px) and (max-width: 500px) {
+    height: 30vh;
+  }
 `;
 
 const Headerbackground = styled.div`
@@ -61,10 +64,14 @@ animation: bounceInRight 1s;
   filter: contrast(0.8);
 }
 
-@media (min-width: 300px) and (max-width: 500px) {
+@media (min-width: 300px) and (max-width: 1000px) {
     left: 85%;
     width: 13%;
 }
+
+
+
+
 
 `
 
@@ -73,6 +80,12 @@ position:absolute;
 top:54%;
 left:40%;
 animation: backInUp 1s;
+@media (min-width: 300px) and (max-width: 500px) {
+ display: none;
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+  left: 27%;
+ }
 `
 
 
@@ -91,7 +104,12 @@ const TextAnimation = styled.div`
   @media (min-width: 300px) and (max-width: 500px) {
     font-size: 11vh;
     top: 46%;
+    margin-top: 19vh;
   }
+  @media (min-width: 700px) and (max-width: 1000px) {
+    font-size: 20vh;
+   }
+
 `;
 
 

@@ -32,6 +32,9 @@ const Titleflex = styled.div`
   align-content: stretch;
   align-items: baseline;
   animation: ${({ isVisible }) => (isVisible ? 'bounceInDown 2s' : 'none')}; 
+  @media (min-width: 300px) and (max-width: 500px) {
+  font-size:3.3vh;
+  }
 `;
 
 const Titleanimation = styled.div``;

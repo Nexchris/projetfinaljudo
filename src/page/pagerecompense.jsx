@@ -8,6 +8,7 @@ const Background = styled.div`
   width: 100%;
   height: 170vh;
   background-color: #0A094B;
+  
 `;
 
 const Titleflex = styled.div`
@@ -19,6 +20,10 @@ const Titleflex = styled.div`
   flex-direction: column;
   align-content: stretch;
   align-items: baseline;
+  @media (min-width: 300px) and (max-width: 500px) {
+    font-size: 3.3vh;
+ 
+  }
 `;
 
 const Title1 = styled.div`

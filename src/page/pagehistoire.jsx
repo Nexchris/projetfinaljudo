@@ -15,7 +15,7 @@ const Background = styled.div`
   display: flex;
   align-items: flex-start; /* Aligner les enfants sur le début de l'axe transversal */
   @media (min-width: 300px) and (max-width: 500px) {
-    height: 60vh;
+    height: 50vh;
   }
 `;
 
@@ -28,7 +28,7 @@ const Titleflex = styled.div`
   animation: backInLeft 1.5s;
   @media (min-width: 300px) and (max-width: 500px) {
     font-size: 3.3vh;
-    margin-top:3vh;
+ 
   }
 `;
 

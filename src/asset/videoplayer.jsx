@@ -21,6 +21,7 @@ const VideoPlayer = styled.video`
   height: 100%;
   @media (min-width: 300px) and (max-width: 500px) {
     height: auto;
+    margin-top: 3vh;
   }
 `;
 
